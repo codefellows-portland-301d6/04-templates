@@ -23,7 +23,7 @@ Article.prototype.toHtml = function() {
   //   or say "(draft)" if it has no publication date:
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
   this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
-
+  $('#author-filter').append(this.author);
   // TODO: Use the function that Handlebars gave you to return your filled-in
   //       html template for THIS article.
   return html;
@@ -39,4 +39,6 @@ ourLocalData.forEach(function(ele) {
 
 articles.forEach(function(a){
   $('#articles').append(a.toHtml());
+  $('author-template').append(a.author);
+
 });
