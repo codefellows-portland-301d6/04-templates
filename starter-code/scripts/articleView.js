@@ -33,6 +33,7 @@ articleView.handleCategoryFilter = function() {
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
       $('article').hide();
+      console.log('Hidden');
       $('article[data-category="' + $(this).val() + '"]').fadeIn();
     } else {
       $('article').fadeIn();

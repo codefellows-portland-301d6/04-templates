@@ -13,9 +13,11 @@ Article.prototype.toHtml = function() {
   // TODO: Use handlebars to render your articles!
   //       - Select your template from the DOM.
   //       - Now "compile" your template with Handlebars.
-  var source = $("#article-template").html();
+  var source = $('#article-template').html();
   var template = Handlebars.compile(source);
   var html = template(this);
+
+
   // DONE: If your template will use properties that aren't on the object yet, add them.
   //   Since your template can't hold any JS logic, we need to execute the logic here.
   //   The result is added to the object as a new property, which can then be referenced
@@ -29,6 +31,10 @@ Article.prototype.toHtml = function() {
   return html;
 };
 
+
+
+
+
 ourLocalData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
@@ -39,6 +45,6 @@ ourLocalData.forEach(function(ele) {
 
 articles.forEach(function(a){
   $('#articles').append(a.toHtml());
-  $('author-template').append(a.author);
-
+  $('#author-filter').append('<option value ="' + a.author+ '">' +a.author+ '</option>');
+  $('#category-filter').append('<option value ="' + a.category+ '">' +a.category+ '</option>');
 });
