@@ -46,5 +46,7 @@ ourLocalData.forEach(function(ele) {
 articles.forEach(function(a){
   $('#articles').append(a.toHtml());
   $('#author-filter').append('<option value ="' + a.author+ '">' +a.author+ '</option>');
-  $('#category-filter').append('<option value ="' + a.category+ '">' +a.category+ '</option>');
+  if ($('#category-filter option[value="' + a.category + '"]').length === 0) {
+    $('#category-filter').append('<option value ="' + a.category+ '">' +a.category+ '</option>');
+  }
 });

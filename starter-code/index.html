@@ -12,6 +12,7 @@
     <!-- Code Fellows favicon -->
     <link rel="icon" type="image/x-icon" href="https://i.imgur.com/7v5ASc8.png">
     <script id="article-template" type="text/x-handle-template">
+<div class = "entry" data-category="{{category}}" data-author="{{author}}">
     {{title}}
     <br>
     {{category}}
@@ -25,6 +26,7 @@
     {{{body}}}
     <br>
     <br>
+    </div>
     </script>
 
 
@@ -82,9 +84,6 @@
             <li>
               <select id="author-filter">
                 <option value="">-- Filter by Authors --</option>
-                <script id="author-template" type="text/x-handle-template">
-                  {{author-tag}}
-                </script>
               </select>
             </li>
             <li>
