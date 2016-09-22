@@ -1,3 +1,8 @@
+var sectionObjects = [
+  {id: 'author', text:'Authors'},
+  {id: 'category', text: 'Categories'}
+];
+
 var ourLocalData = [
   {
     title:       'Bacon Ipsum',
