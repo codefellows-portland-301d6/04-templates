@@ -38,6 +38,16 @@
         Make a small template for each template, and render the list once
         you have data to populate it with.
       -->
+    <script id="author-filter-script" type="text/x-handlebars-template">
+      <select id="author-filter">
+        <option value="{{author}}">-- Filter by Authors --</option>
+      </select>
+    </script>
+    <script id="category-filter-script" type="text/x-handlebars-template">
+      <select id="category-filter">
+        <option value="{{category}}">-- Filter by Categories --</option>
+      </select>
+    </script>
   </head>
   <body>
     <header class="site-header clearfix">
@@ -62,15 +72,11 @@
       <section id="articles" class="tab-content">
         <div>
           <ul id="filters">
-            <li>
-              <select id="author-filter">
-                <option value="">-- Filter by Authors --</option>
-              </select>
+            <li id="author-select">
+
             </li>
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
+            <li id="category-select">
+
             </li>
           </ul>
         </div>

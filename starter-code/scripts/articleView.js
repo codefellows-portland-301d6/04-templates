@@ -2,11 +2,21 @@
 var articleView = {};
 
 articleView.populateFilters = function() {
+  var authorSource = $('#author-filter-script').html();
+  var categorySource = $('#category-filter-script').html();
+  var authorTemplate = Handlebars.compile(authorSource);
+  var categoryTemplate = Handlebars.compile(categorySource);
+  var authorHtml = authorTemplate(this);
+  var categoryHtml = categoryTemplate(this);
+
+  $('#author-select').append(authorHtml);
+  $('#category-select').append(categoryHtml);
   $('article').not('.template').each(function() {
     var authorName, category, optionTag;
     authorName = $(this).find('address a').text();
     optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
     $('#author-filter').append(optionTag);
+    console.log(optionTag);
 
     category = $(this).attr('data-category');
     optionTag = '<option value="' + category + '">' + category + '</option>';
@@ -14,6 +24,8 @@ articleView.populateFilters = function() {
       $('#category-filter').append(optionTag);
     }
   });
+
+
 };
 
 articleView.handleAuthorFilter = function() {
