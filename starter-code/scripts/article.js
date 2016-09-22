@@ -6,12 +6,12 @@ function Article (opts) {
     this[key] = opts[key];
   }
 
-  // this.author = opts.author;
-  // this.authorUrl = opts.authorUrl;
-  // this.title = opts.title;
-  // this.category = opts.category;
-  // this.body = opts.body;
-  // this.publishedOn = opts.publishedOn;
+  //this.author = opts.author;
+  //this.authorUrl = opts.authorUrl;
+  //this.title = opts.title;
+  //this.category = opts.category;
+  //this.body = opts.body;
+  //this.publishedOn = opts.publishedOn;
 }
 
 Article.prototype.toHtml = function() {
@@ -31,6 +31,10 @@ Article.prototype.toHtml = function() {
 
   // TODO: Use the function that Handlebars gave you to return your filled-in
   //       html template for THIS article.
+  var context = ourLocalData;
+  var html = template(this);
+
+  return html;
 };
 
 ourLocalData.sort(function(a,b) {
