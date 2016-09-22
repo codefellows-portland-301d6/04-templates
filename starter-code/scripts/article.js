@@ -8,6 +8,13 @@ function Article (opts) {
   this.body = opts.body;
   this.publishedOn = opts.publishedOn;
 }
+//Helper function to attach filter ids
+function attachFilters (object) {
+  var source = $('#filter-template').html();
+  var template = Handlebars.compile(source);
+  var html = template(object);
+  return html;
+};
 
 Article.prototype.toHtml = function() {
   // TODO: Use handlebars to render your articles!
@@ -30,6 +37,10 @@ Article.prototype.toHtml = function() {
 
 ourLocalData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+});
+
+sectionObjects.forEach(function(element){
+  $('#filters').append(attachFilters(element));
 });
 
 ourLocalData.forEach(function(ele) {
